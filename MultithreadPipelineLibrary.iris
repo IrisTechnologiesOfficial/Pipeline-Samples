@@ -1,4 +1,4 @@
-module LibraryTestPipeline //Export stuff into the module
+module MultithreadedLibraryTestPipeline //Export stuff into the module
 {
   pipeline GameLogic
   {
