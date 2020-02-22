@@ -1,0 +1,50 @@
+using EasyRender;
+
+pipeline SpriteEngineD3D11 : AutoRenderD3D11[0]
+{
+   fn Start()
+   {
+      //Do something if needed
+   }
+   
+   fn Update()
+   {
+      //Do the drawcalls in a D3D11 way to a List of Sprites, allocated at global scope, where you add the Sprites you want to draw here
+   }
+}
+
+pipeline SpriteEngineD3D12 : AutoRenderD3D12[0]
+{
+   fn Start()
+   {
+      // Do something if needed
+   }
+   
+   fn Update()
+   {
+      //Do the drawcalls in a D3D12 way to a List of Sprites, allocated at global scope, where you add the Sprites you want to draw here
+   }
+}
+
+main() // Entry point
+{
+   InitAutoRender(); // It would look as following:
+   //{
+      // bool IsD3D12;
+      // IsD3D12Available(IsD3D12);
+      // if(IsD3D12)
+      // {
+         // AutoRenderD3D12.Start();
+         // SpriteEngineD3D12.Start();
+         // AutoRenderD3D12.Update();
+         // SpriteEngineD3D12.Update();
+      // }
+      // else
+      // {
+         // AutoRenderD3D11.Start();
+         // SpriteEngineD3D11.Start();
+         // AutoRenderD3D11.Update();
+         // SpriteEngineD3D11.Update();
+      // }
+   //}
+}
