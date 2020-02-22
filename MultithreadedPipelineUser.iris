@@ -1,0 +1,55 @@
+using LibraryTestPipeline;//import the module
+
+pipeline Render : GameLogic[0] //inherits from the other pipeline at the library, so we can overload its methods. the index number([0]) defines the order that this pipeline methods will be called
+{
+   fn Start()
+   {
+      //Initializes Render engine
+   }
+
+   fn Update()
+   {
+      //Creates another thread to update the Render engine
+      Thread t;
+      t.Delegate(
+      while(!GameNoExits)
+      {
+         //Do render stuff
+      }
+      );
+      t.Start();
+   }
+}
+
+pipeline Sound : GameLogic[1]
+{
+   fn Start()
+   {
+      //Initializes Sound engine
+   }
+
+   fn Update()
+   {
+      //Creates another thread to update the Sound engine
+      Thread t;
+      t.Delegate(
+      while(!GameNoExits)
+      {
+         //Do sound stuff
+      }
+      );
+      t.Start();
+   }
+}
+
+main() //Entry point
+{
+  StartGameLogic(); 
+  // Now it will call the library function which invokes the pipelines(ALL AT COMPILE TIME, and inlining the calls, no vtables or polymorphic techniques are involved), it will look as:
+  // GameLogic.Start(); base
+  // Render.Start(); index 0
+  // Sound.Start(); index 1
+  // GameLogic.Update(); base
+  // Render.Update(); index 0
+  // Sound.Update(); index 1
+}
