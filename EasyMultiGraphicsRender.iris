@@ -1,0 +1,49 @@
+fn IsD3D12Available(out bool b)
+{
+   //Check if D3D12 is available at runtime, store the result on b
+}
+
+module EasyRender
+{
+   pipeline AutoRenderD3D11
+   {
+      fn Start()
+      {
+         // Initializes D3D11 render context
+      }
+      
+      fn Update()
+      {
+         // Updates D3D11 render context
+      }
+   }
+   
+   pipeline AutoRenderD3D12
+   {
+      fn Start()
+      {
+         // Initializes D3D12 render context
+      }
+      
+      fn Update()
+      {
+         // Updates D3D12 render context
+      }
+   }
+   
+   fn InitAutoRender()
+   {
+      bool IsD3D12;
+      IsD3D12Available(IsD3D12);
+      if(IsD3D12)
+      {
+         AutoRenderD3D12.Start();
+         AutoRenderD3D12.Update();
+      }
+      else
+      {
+         AutoRenderD3D11.Start();
+         AutoRenderD3D11.Update();
+      }
+   }
+}
