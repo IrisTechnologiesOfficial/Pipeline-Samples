@@ -1,0 +1,22 @@
+module LibraryTestPipeline //Export stuff into the module
+{
+  pipeline GameLogic
+  {
+    fn Start()
+    {
+      //The library maker also can add code here
+    }
+
+    fn Update(){}
+  }
+
+  fn StartGameLogic()
+  {
+
+     GameLogic.Start();//Calls the GameLogic Start method and all the Start methods from other pipelines that inherit from GameLogic pipeline
+     ...
+     //Do any other stuff
+     ...
+     GameLogic.Update();
+  }
+}
