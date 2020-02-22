@@ -29,7 +29,7 @@ pipeline Sound : GameLogic[1]
 main() //Entry point
 {
   StartGameLogic(); 
-  // Now it will call the library function which invokes the pipelines, it will look as:
+  // Now it will call the library function which invokes the pipelines(ALL AT COMPILE TIME, and inlining the calls, no vtables or polymorphic techniques are involved), it will look as:
   // GameLogic.Start(); base
   // Render.Start(); index 0
   // Sound.Start(); index 1
