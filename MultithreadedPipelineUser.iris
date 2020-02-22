@@ -1,4 +1,4 @@
-using LibraryTestPipeline;//import the module
+using MultithreadedLibraryTestPipeline;//import the module
 
 pipeline Render : GameLogic[0] //inherits from the other pipeline at the library, so we can overload its methods. the index number([0]) defines the order that this pipeline methods will be called
 {
